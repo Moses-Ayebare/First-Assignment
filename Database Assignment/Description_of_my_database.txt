@@ -1,0 +1,4 @@
+My Flight Booking Database
+My database contains names of people and their various planned destinations. These people have other information pertaining to them such as their usernames which are their email addresses, their phone numbers and their departure airport. The departure airport in this case is only Entebbe International Airport. This is an assumption that all these people can only travel from this airport.
+This database also shows which airport they want to travel to. It is labelled arrival airport and its syntax contains the airport’s name, its international code/label and its location. It also has the number of passengers they will move with themselves inclusive, the preferred airline they will travel with and the travel class they will use while travelling in that airline.
+

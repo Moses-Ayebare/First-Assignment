@@ -1,0 +1,23 @@
+select person_name,airline_name  from names join airline JOIN names_airline ON  airline.id=names_airline.airline_id AND names_airline.names_id=names.id WHERE airline.airline_name LIKE '%Emirate%'; 
+First query shows everyone that used Emirates as an airline
+
+SELECT person_name,travel_class FROM names JOIN names_airline JOIN airline ON airline.id=names_airline.airline_id AND names_airline.names_id=names.id WHERE airline.travel_class LIKE "%First Class%"; 
+Second query shows everyone that used First Class
+
+SELECT person_name FROM names JOIN names_airline JOIN airline ON airline.id=names_airline.airline_id AND names_airline.names_id=names.id WHERE airline.travel_class LIKE "%First Class%" AND airline.airline_name='Uganda Airlines';
+Third query shows everyone that used First class on Uganda Airlines using join
+
+SELECT person_name FROM names WHERE id IN(SELECT names_id FROM names_airline WHERE id IN(SELECT id FROM airline WHERE travel_class LIKE "%First Class%" AND airline_name LIKE "%Uganda%"));
+Fourth query shows everyone that used First class on Uganda Airlines using concatenating
+
+SELECT COUNT(person_name) FROM names WHERE id IN(SELECT names_id FROM names_airport WHERE id IN(SELECT id FROM arrival_airport WHERE airport_name LIKE"%JFK%"));
+Fifth query counts the number of people that went to JFK airport
+
+SELECT person_name FROM names WHERE id IN(SELECT names_id FROM names_airline WHERE id IN(SELECT id FROM airline WHERE passengers_number=2 AND airline_name="Emirates"));
+Sixth query shows the people who had two passengers and used Emirates
+
+SELECT COUNT(person_name) FROM names WHERE id IN(SELECT names_id FROM names_airline WHERE id IN(SELECT id FROM airline WHERE passengers_number=2 AND airline_name="British Airways"));
+Seventh query counts the people who had two passengers and used British Airways
+
+SELECT person_name FROM names WHERE id IN(SELECT names_id FROM names_airline WHERE id IN(SELECT id FROM airline WHERE passengers_number=1 AND airline_name="British Airways"));
+Eigth query shows everyone that had one passenger and used British Airways 
